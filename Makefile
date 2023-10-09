@@ -10,7 +10,7 @@ build-docker:
 	DOCKER_BUILDKIT=0 docker build  -t ${IMG} .
 
 deploy-k8s:
-	kubectl delete deployment go-cross-helloworld
+	-kubectl delete deployment go-cross-helloworld
 	kubectl create deployment go-cross-helloworld --image=${IMG} --replicas=1 
 
 #kubectl create deployment go-cross-helloworld --image=${IMG} --replicas=1 --dry-run -oyaml
